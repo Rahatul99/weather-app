@@ -34,7 +34,7 @@
                 <?php echo e($info->city); ?>
             </div>
             <div class="top-bar__date">
-                Monday, 25<sup>th</sup>
+                <?php echo e(date('l')); ?>, <?php echo e(date('d')); ?><sup>th</sup>
             </div>
         </div>
         <div class="weather-info">
@@ -53,7 +53,10 @@
             <?php if (!empty($largeImage)): ?>
                 <img class="weather-info__image" src="<?php echo e($largeImage); ?>" alt="<?php echo e($info->weatherType); ?>" />
             <?php endif; ?>
-            <h1 class="weather-info__temperature"><?php echo e($info->temperature); ?>K</h1>
+            <!-- <h1 class="weather-info__temperature"><?php echo e($info->temperature); ?>K</h1> -->
+            <!-- <h1 class="weather-info__temperature"><?php echo e($info->getFahrenheit()); ?>°</h1> -->
+            <!-- <h1 class="weather-info__temperature"><?php echo e($info->getCelsius()); ?>C</h1> -->
+            <h1 class="weather-info__temperature"><?php echo e($info->getFahrenheit()); ?>° / <?php echo e($info->getCelsius()); ?>°</h1>
             <?php if ($info->weatherType === 'stormy'): ?>
                 <p class="weather-info__desc">
                     <svg class="icon" viewBox="0 0 64.835 62.9863">
